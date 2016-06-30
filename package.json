@@ -1,0 +1,14 @@
+{
+  "name": "css-concat-loader",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "es6-promise": "^3.2.1",
+    "loader-utils": "^0.2.15",
+    "lodash": "^4.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^2.13.1"
+  }
+}
