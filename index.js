@@ -10,7 +10,8 @@ module.exports = function(content) {
 
   var config = Object.assign({
     extensions: ['.css'],
-    resolveUrls: true
+    resolveUrls: true,
+    context: this.context
   }, loaderUtils.getLoaderConfig(this, 'cssConcat'));
 
   var url = loaderUtils.interpolateName(this, '[path][name].[ext]', {
@@ -19,7 +20,11 @@ module.exports = function(content) {
   });
   try {
     var result = parseImports(path.join(this.context, url), content, config);
-    callback(null, "module.exports = " + JSON.stringify(result));
+    var cssAsString = JSON.stringify(result.css);
+    cssAsString = cssAsString.replace(/___CSS_LOADER_URL___([0-9]+)___/g, function (match, id) {
+      return 'url(\\"" + require("' + result.urls[id] + '") + "\\")';
+    });
+    callback(null, "module.exports = " + cssAsString);
   } catch (err) {
     callback(err);
   }
