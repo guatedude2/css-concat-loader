@@ -3,10 +3,6 @@
   "version": "0.0.5",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "watch": "jest --watch"
-  },
   "dependencies": {
     "es6-promise": "^3.2.1",
     "loader-utils": "^0.2.15",
@@ -14,7 +10,6 @@
     "strip-css-comments": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^2.13.1",
-    "jest": "^19.0.2"
+    "eslint": "^2.13.1"
   }
 }
